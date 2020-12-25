@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>QR CODE Generator</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+</head>
+<body>
+<div class="m-3">
+<div class="card card-default">
+	<div class="card-header"> QR Generator</div>
+	<div class="card-body">
+	<% if(QR_code){ %>
+	<h3 class="text-center">Scan this from your scanner</h3>
+	<div class="text-center my-3">
+	<img src="<%= QR_code %>">
+	<br>
+	<a href="/download?file_path=<%= img_src %>"> Download</a>
+	</div>
+	<% }else{ %>
+		<form action="/" method="POST">
+			<div class="form-group">
+				<label for="url">Enter URL</label>
+				<input type="text" name="url" id="url" class="form-control" required placeholder="Enter URL here..">
+			</div>
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-primary">Generate</button>
+			</div>
+		</form>
+	<% } %>
+	</div>
+</div>
+
+</div>
+
+</body>
+</html>
